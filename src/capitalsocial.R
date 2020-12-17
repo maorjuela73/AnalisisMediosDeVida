@@ -171,17 +171,17 @@ iniciativas_reunir <- graficos_binarios(df_union[df_hogares$P34 == 1, -c(4,5)], 
 
 df_union$P3401OTHER %>% table() %>% prop.table() %>% sort()
 
-return(list(beneficios_aso_prod = beneficios_aso_prod,
-            ayuda_aso_prod = ayuda_aso_prod,
-            beneficios_aso_com = beneficios_aso_com,
+return(list(beneficios_aso_prod = beneficios_aso_prod$graph,
+            ayuda_aso_prod = ayuda_aso_prod$graph,
+            beneficios_aso_com = beneficios_aso_com$graph,
             aprendizaje_obras = aprendizaje_obras,
             aprendizaje_comp_soc = aprendizaje_comp_soc,
             expreiencia_inundaciones = expreiencia_inundaciones,
             veces_enfrentado_lluvias_sequias = veces_enfrentado_lluvias_sequias,
             fecha_recuerda_lluv_inunda = fecha_recuerda_lluv_inunda,
-            como_enfrenta_in_seq = como_enfrenta_in_seq,
-            ayudas_recibe = ayudas_recibe,
-            iniciativas_reunir = iniciativas_reunir))
+            como_enfrenta_in_seq = como_enfrenta_in_seq$graph,
+            ayudas_recibe = ayudas_recibe$graph,
+            iniciativas_reunir = iniciativas_reunir$graph))
 
 }
 # beneficios_aso_prod, ayuda_aso_prod, beneficios_aso_com, aprendizaje_obras, aprendizaje_comp_soc, expreiencia_inundaciones, veces_enfrentado_lluvias_sequias, fecha_recuerda_lluv_inunda, como_enfrenta_in_seq, ayudas_recibe, iniciativas_reunir

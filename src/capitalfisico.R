@@ -480,15 +480,14 @@ return(list(infraest_puntuacion = infraest_puntuacion,
             costo_sacar_productos = costo_sacar_productos,
             resumen_inf_vial_cost = resumen_inf_vial_cost,
             como_transporta = como_transporta,
-            resumen_mediostrans = resumen_mediostrans, 
-            beneficios_aso_comun = beneficios_aso_comun,
-            beneficios_aso_com1 = beneficios_aso_com1,
-            insumosG = insumosG,
-            semillasG = semillasG,
-            semillasRes = semillasRes,
-            abonosG = abonosG,
-            abonosAnim = abonosAnim,
-            entornoG = entornoG))
+            beneficios_aso_comun = beneficios_aso_comun$graph,
+            beneficios_aso_com1 = beneficios_aso_com1$graph,
+            insumosG = insumosG$graph,
+            semillasG = semillasG$graph,
+            semillasRes = semillasRes$graph,
+            abonosG = abonosG$graph,
+            abonosAnim = abonosAnim$graph,
+            entornoG = entornoG$graph))
 }
 # infraest_puntuacion, infraest_diferencia_puntuacion, donde_vende_productos, distancia_sacar_productos, resumen_inf_vial, costo_sacar_productos, resumen_inf_vial_cost, como_transporta, resumen_mediostrans, beneficios_aso_comun, beneficios_aso_com1, insumosG, semillasG, semillasRes, abonosG, abonosAnim, entornoG
 # wordcloud_graph(df_inf_prod$Herramientas_dificiles)
