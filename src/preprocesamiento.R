@@ -17,12 +17,12 @@ transformacion_faltantes <- function(x){
 # Lectura de los datos ----------------------------------------------------
 
 
-df_hogares_orig <- read_excel('../input/Base_Hogares_101020.xlsx', skip = 1)
-df_diccionario <- read_excel('../input/Base_Hogares_101020.xlsx')
+df_hogares_orig <- read_excel('data/Base_Hogares_101020.xlsx', skip = 1)
+df_diccionario <- read_excel('data/Base_Hogares_101020.xlsx')
 df_dicc <- data_frame(preguntas = names(df_diccionario), nombre_base = names(df_hogares_orig))
-cobertura <- read_excel("../Input/cobertura_final.xlsx")
-df_personas <- read_excel('../Input/PERSONAS_2020923.xlsx', range = "A2:Q21088")
-# cobertura <- read.csv("../input/cobertura_final.csv", sep = ";", encoding = "UTF-8")
+cobertura <- read_excel("data/cobertura_final.xlsx")
+df_personas <- read_excel('data/PERSONAS_2020923.xlsx', range = "A2:Q21088")
+# cobertura <- read.csv("../data/cobertura_final.csv", sep = ";", encoding = "UTF-8")
 
 # Lectura de datos para Capital Humano
 

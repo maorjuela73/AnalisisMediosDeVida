@@ -1,6 +1,6 @@
 # df_hogares %>% View()
 
-source("ingresos.R", encoding = "UTF-8")
+source("src/Ingresos.R", encoding = "UTF-8")
 
 capitalFinanciero <- function(df_hogares){
 

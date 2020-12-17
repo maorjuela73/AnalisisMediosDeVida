@@ -1,6 +1,5 @@
 library(ggplot2)
 library(dplyr)
-library(DataExplorer)
 library(plotly)
 library(tidyverse)
 library(FactoMineR)
@@ -13,22 +12,20 @@ library("tm")
 library("SnowballC")
 library("wordcloud")
 library("RColorBrewer")
-setwd("C:/Users/diant/Documents/deproyectos-Cauca/Bases/Análisis/Src")
-
 # Graficos
-source("graficos.R", encoding = "UTF-8")
+source("src/graficos.R", encoding = "UTF-8")
 # carga de los datos
-source("preprocesamiento.R", encoding = "UTF-8")
+source("src/preprocesamiento.R", encoding = "UTF-8")
 # Calculos de actividades principales
-source("actividadesPrincipales.R", encoding = "UTF-8")
+source("src/actividadesPrincipales.R", encoding = "UTF-8")
 # Calculos de capital humano
-source("capitalhumano.R", encoding = "UTF-8")
+source("src/capitalhumano.R", encoding = "UTF-8")
 # Capital Social
-source("capitalsocial.R", encoding = "UTF-8")
+source("src/capitalsocial.R", encoding = "UTF-8")
 # Capital físico
-source("capitalfisico.R", encoding = "UTF-8")
+source("src/capitalfisico.R", encoding = "UTF-8")
 # Capital financiero
-source("capitalfinanciero.R", encoding = "UTF-8")
+source("src/capitalfinanciero.R", encoding = "UTF-8")
 
 actividadesPrincipales <- actividadesPrincipalesFun(df_hogares)
 capitalHumano(df_hogares, df_personas)
@@ -49,3 +46,7 @@ a <- data.frame(Capital = c(rep("general", length(actividadesPrincipales))),
 
 
 actividadesPrincipales[[a$nombre[1]]]
+
+a
+
+names(actividadesPrincipales)
