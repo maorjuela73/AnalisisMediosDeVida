@@ -1,7 +1,6 @@
 # Librerias
 library(ggplot2)
 library(dplyr)
-library(DataExplorer)
 library(plotly)
 library(tidyverse)
 library(FactoMineR)

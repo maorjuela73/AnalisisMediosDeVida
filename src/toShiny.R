@@ -1,6 +1,5 @@
 library(ggplot2)
 library(dplyr)
-library(DataExplorer)
 library(plotly)
 library(tidyverse)
 library(FactoMineR)
@@ -13,28 +12,30 @@ library("tm")
 library("SnowballC")
 library("wordcloud")
 library("RColorBrewer")
-setwd("C:/Users/diant/Documents/deproyectos-Cauca/Bases/Análisis/Src")
-
 # Graficos
-source("graficos.R", encoding = "UTF-8")
+source("src/graficos.R", encoding = "UTF-8")
 # carga de los datos
-source("preprocesamiento.R", encoding = "UTF-8")
+source("src/preprocesamiento.R", encoding = "UTF-8")
 # Calculos de actividades principales
-source("actividadesPrincipales.R", encoding = "UTF-8")
+source("src/actividadesPrincipales.R", encoding = "UTF-8")
 # Calculos de capital humano
-source("capitalhumano.R", encoding = "UTF-8")
+source("src/capitalhumano.R", encoding = "UTF-8")
 # Capital Social
-source("capitalsocial.R", encoding = "UTF-8")
+source("src/capitalsocial.R", encoding = "UTF-8")
 # Capital físico
-source("capitalfisico.R", encoding = "UTF-8")
+source("src/capitalfisico.R", encoding = "UTF-8")
 # Capital financiero
-source("capitalfinanciero.R", encoding = "UTF-8")
+source("src/capitalfinanciero.R", encoding = "UTF-8")
 
 actividadesPrincipales <- actividadesPrincipalesFun(df_hogares)
 capitalHumanoSalida <- capitalHumano(df_hogares, df_personas)
 capitalSoci <- capitalSocial(df_hogares)
 capitalFisi <- capitalFisico(df_hogares)
+<<<<<<< HEAD
 capitalFinanci <- capitalFinanciero(df_hogares)
+=======
+df_financi <- capitalFinanciero(df_hogares)
+>>>>>>> 14dd645ec03872e2e0d80cf9435b1303a6971fda
 
 # source("preprocesamiento.R", encoding = "UTF-8")
 # source("graficos.R", encoding = "UTF-8")
@@ -57,6 +58,7 @@ df_humano <- data.frame(Capital = c(rep("humano", length(capitalHumanoSalida))),
                                          "Número de personas vs cuántos miembros trabajan (todos/algunos)",
                                          "Proporcion de personas que trabajan en el hogar",
                                          "Actividades que realizan las personas para aportar en el hogar"))
+<<<<<<< HEAD
 
 df_soci <- data.frame(Capital = c(rep("humano", length(capitalSoci))),
                       nombre = names(capitalSoci),
@@ -93,6 +95,45 @@ df_fisico <- data.frame(Capital = c(rep("capitalFisico", length(capitalFisi))),
                                          "Recursos del entorno"))
 
 
+=======
+
+
+df_soci <- data.frame(Capital = c(rep("humano", length(capitalSoci))),
+                      nombre = names(capitalSoci),
+                      descripcion = c("Beneficios de pertenecer a una asociación de productores",
+                                      "Beneficios de pertenecer a una asociación de productores en casos de inundación/lluvias",
+                                      "Beneficios de pertenecer a una asociación comunitaria",
+                                      "Percepcion de la importancia (1-10) de aprendizaje en obras para enfrentar situaciones de inundaciones/sequias",
+                                      "Percepcion de la importancia (1-10)de aprendizaje de comportamiento social para enfrentar situaciones de inundaciones/sequias",
+                                      "Percepcion de la importancia (1-10) de experiencia en inundaciones/ sequias para enfrentar situaciones de inundaciones/sequias",
+                                      "Número de veces que se ha enfrentado a situaciones muy fuertes de inundacion / sequia",
+                                      "Año desde el que los hogares encuestados recuerdan las situaciones de inundación o sequía",
+                                      "Formas en que los hogares se enfrentan a eventos de lluvias, crecientes, inundaciones, veranos y sequias",
+                                      "Tipo de ayuda que recibe de las entidades nacionales",
+                                      "¿Quién toma la iniciativa de realizar uniones?"))
+
+
+df_fisico <- data.frame(Capital = c(rep("capitalFisico", length(capitalFisi))),
+                         nombre = names(capitalFisi),
+                         descripcion = c("Puntuación respecto a diferentes servicios durante la etapa de construcción y contingencia",
+                                         "Diferencia entre las puntuaciones construcción – contingencia reportadas por los hogares para las diferentes necesidades básicas por clase",
+                                         "Lugares donde los hogares venden los productos",
+                                         "Distancia desde el predio hasta donde saca los productos a la venta",
+                                         "Resumen de infraestructura vial",
+                                         "Costo de transportar los productos desde el predio a su punto de venta.",
+                                         "Resumen costo de transportar por tramo",
+                                         "¿Cómo saca los productos a la venta?",
+                                         "Beneficios de pertenecer a una asociacion productiva",
+                                         "Beneficios de pertenecer a una asociacion comunitaria",
+                                         "Insumos para las actividades productivas adquirudos en el mercado",
+                                         "Obtención de las semillas de forma que no requiera su compra",
+                                         "Obtención de las semillas de forma que no requiera su compra Resistentes a las sequias/invierno",
+                                         "Procesamiento de abono",
+                                         "Tipo de abono, procesamiento",
+                                         "Recursos del entorno"))
+
+
+>>>>>>> 14dd645ec03872e2e0d80cf9435b1303a6971fda
 df_financi <- data.frame(Capital = c(rep("capitalFisico", length(df_financi))),
                                                 nombre = names(df_financi),
                                                 descripcion = c("Fuente de ingreso",
