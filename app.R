@@ -29,8 +29,7 @@ ui <- navbarPage(
                                  )
                          ),
                          mainPanel(
-                                 plotlyOutput("bigPlot"),
-                                 tableOutput("bigPlot2")
+                                 plotOutput("bigPlot")
                          )
                  )
         ),
@@ -45,16 +44,29 @@ ui <- navbarPage(
                                  )
                          ),
                          mainPanel(
-                                 plotlyOutput("bigPlo3"),
-                                 tableOutput("bigPlot4")
+                                 plotOutput("bigPlot2")
                          )
                  )  
         ),
-        tabPanel(title = paste("CAPITAL SOCIAL")),
-        tabPanel(title = paste("CAPITAL HUMANO"),
+        tabPanel(title = paste("CAPITAL SOCIAL"),
                  sidebarLayout(
                          sidebarPanel(
                                  selectInput(inputId = "plotToShow3",
+                                             label = "Gráfico a visualizar",
+                                             choices = setNames(df_soci$nombre, df_soci$descripcion),
+                                             selected = NULL,
+                                             multiple = FALSE
+                                 )
+                         ),
+                         mainPanel(
+                                 plotOutput("bigPlot3")
+                         )
+                 )  
+        ),
+        tabPanel(title = paste("CAPITAL HUMANO"),
+                 sidebarLayout(
+                         sidebarPanel(
+                                 selectInput(inputId = "plotToShow4",
                                              label = "Gráfico a visualizar",
                                              choices = setNames(df_humano$nombre, df_humano$descripcion),
                                              selected = NULL,
@@ -62,40 +74,49 @@ ui <- navbarPage(
                                  )
                          ),
                          mainPanel(
-                                 plotlyOutput("bigPlot5"),
-                                 tableOutput("bigPlot6")
+                                 plotOutput("bigPlot4")
                          )
                  )
         ),
-        tabPanel(title = paste("CAPITAL FINANCIERO"))
+        tabPanel(title = paste("CAPITAL FINANCIERO"),
+                 sidebarLayout(
+                         sidebarPanel(
+                                 selectInput(inputId = "plotToShow5",
+                                             label = "Gráfico a visualizar",
+                                             choices = setNames(df_financi$nombre, df_financi$descripcion),
+                                             selected = NULL,
+                                             multiple = FALSE
+                                 )
+                         ),
+                         mainPanel(
+                                 plotOutput("bigPlot5")
+                         )
+                )
+         )
 )
 
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
         
-        output$bigPlot <- renderPlotly({
+        output$bigPlot <- renderPlot({
                 actividadesPrincipales[[input$plotToShow]]
         })
         
-        output$bigPlot2 <- renderTable({
-                actividadesPrincipales[[input$plotToShow]]
-        })
-        
-        output$bigPlot3 <- renderPlotly({
+        output$bigPlot2 <- renderPlot({
                 capitalFisi[[input$plotToShow2]]
         })
         
-        output$bigPlot4 <- renderTable({
-                capitalFisi[[input$plotToShow2]]
+        output$bigPlot3 <- renderPlot({
+                capitalSoci[[input$plotToShow3]]
         })
         
-        output$bigPlot5 <- renderPlotly({
-                capitalHumanoSalida[[input$plotToShow3]]
+        output$bigPlot4 <- renderPlot({
+                capitalHumanoSalida[[input$plotToShow4]]
         })
         
-        output$bigPlot6 <- renderTable({
-                capitalHumanoSalida[[input$plotToShow3]]
+        output$bigPlot5 <- renderPlot({
+                capitalFinanci[[input$plotToShow5]]
         })
 }
 
