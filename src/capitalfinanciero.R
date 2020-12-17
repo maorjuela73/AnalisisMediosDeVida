@@ -607,7 +607,7 @@ df_acc_multi <- transformar_si_no_base(df_grap)
 names(df_acc_multi) <- nombres_acceso
 
 ## Mostrar por tramo***
-acceso_resumen <- graficos_binarios(df_grap, nombres_acceso, T, cat = "Proviene", "Origen del agua para la producción agropecuaria", "Número de hogares", df_acceso)
+acceso_resumen <- graficos_binarios(df_grap, nombres_acceso, T, cat = "Proviene", "Acceso a la tierra", "Número de hogares", df_acceso)
 
 df_hogares$P4201 %>% table() %>% sort()
 
