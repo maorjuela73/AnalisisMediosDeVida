@@ -23,7 +23,7 @@ ui <- navbarPage(
                          sidebarPanel(
                                  selectInput(inputId = "plotToShow",
                                              label = "Gráfico a visualizar",
-                                             choices = setNames(a$nombre, a$descripcion),
+                                             choices = setNames(df_princip$nombre, df_princip$descripcion),
                                              selected = NULL,
                                              multiple = FALSE
                                  )
@@ -34,9 +34,39 @@ ui <- navbarPage(
                          )
                  )
         ),
-        tabPanel(title = paste("CAPITAL FÍSICO")),
+        tabPanel(title = paste("CAPITAL FÍSICO"),
+                sidebarLayout(
+                         sidebarPanel(
+                                 selectInput(inputId = "plotToShow2",
+                                             label = "Gráfico a visualizar",
+                                             choices = setNames(df_fisico$nombre, df_fisico$descripcion),
+                                             selected = NULL,
+                                             multiple = FALSE
+                                 )
+                         ),
+                         mainPanel(
+                                 plotlyOutput("bigPlo3"),
+                                 tableOutput("bigPlot4")
+                         )
+                 )  
+        ),
         tabPanel(title = paste("CAPITAL SOCIAL")),
-        tabPanel(title = paste("CAPITAL HUMANO")),
+        tabPanel(title = paste("CAPITAL HUMANO"),
+                 sidebarLayout(
+                         sidebarPanel(
+                                 selectInput(inputId = "plotToShow3",
+                                             label = "Gráfico a visualizar",
+                                             choices = setNames(df_humano$nombre, df_humano$descripcion),
+                                             selected = NULL,
+                                             multiple = FALSE
+                                 )
+                         ),
+                         mainPanel(
+                                 plotlyOutput("bigPlot5"),
+                                 tableOutput("bigPlot6")
+                         )
+                 )
+        ),
         tabPanel(title = paste("CAPITAL FINANCIERO"))
 )
 
@@ -52,6 +82,21 @@ server <- function(input, output) {
                 actividadesPrincipales[[input$plotToShow]]
         })
         
+        output$bigPlot3 <- renderPlotly({
+                capitalFisi[[input$plotToShow2]]
+        })
+        
+        output$bigPlot4 <- renderTable({
+                capitalFisi[[input$plotToShow2]]
+        })
+        
+        output$bigPlot5 <- renderPlotly({
+                capitalHumanoSalida[[input$plotToShow3]]
+        })
+        
+        output$bigPlot6 <- renderTable({
+                capitalHumanoSalida[[input$plotToShow3]]
+        })
 }
 
 # Run the application 
